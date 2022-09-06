@@ -1,4 +1,4 @@
-package com.github.jirobird.syncli.data.remote.dto
+package com.github.jirobird.syncli.data.remote.dto.partner
 
 data class PartnerDto(
     val expTime: Int,
