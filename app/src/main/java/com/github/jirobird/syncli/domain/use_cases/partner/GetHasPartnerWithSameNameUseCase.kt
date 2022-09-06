@@ -1,7 +1,7 @@
 package com.github.jirobird.syncli.domain.use_cases.partner
 
 import com.github.jirobird.syncli.common.RequestResponse
-import com.github.jirobird.syncli.data.remote.dto.partner.IPartnerRepository
+import com.github.jirobird.syncli.data.repository.IPartnerRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException

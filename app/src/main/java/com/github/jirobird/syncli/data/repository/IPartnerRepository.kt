@@ -1,4 +1,6 @@
-package com.github.jirobird.syncli.data.remote.dto.partner
+package com.github.jirobird.syncli.data.repository
+
+import com.github.jirobird.syncli.data.remote.dto.partner.PartnerDto
 
 
 interface IPartnerRepository {

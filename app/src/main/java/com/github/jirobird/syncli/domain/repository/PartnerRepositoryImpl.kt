@@ -1,7 +1,7 @@
-package com.github.jirobird.syncli.data.repository
+package com.github.jirobird.syncli.domain.repository
 
 import com.github.jirobird.syncli.data.remote.dto.partner.IPartnerApi
-import com.github.jirobird.syncli.data.remote.dto.partner.IPartnerRepository
+import com.github.jirobird.syncli.data.repository.IPartnerRepository
 import com.github.jirobird.syncli.data.remote.dto.partner.PartnerDto
 import javax.inject.Inject
 

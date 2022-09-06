@@ -2,8 +2,8 @@ package com.github.jirobird.syncli.di
 
 import com.github.jirobird.syncli.common.Constant
 import com.github.jirobird.syncli.data.remote.dto.partner.IPartnerApi
-import com.github.jirobird.syncli.data.remote.dto.partner.IPartnerRepository
-import com.github.jirobird.syncli.data.repository.PartnerRepositoryImpl
+import com.github.jirobird.syncli.data.repository.IPartnerRepository
+import com.github.jirobird.syncli.domain.repository.PartnerRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
