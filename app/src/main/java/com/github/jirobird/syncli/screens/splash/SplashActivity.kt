@@ -9,7 +9,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.ImageView
 import com.github.jirobird.syncli.R
-import com.github.jirobird.syncli.screens.main.MainStateActivity
+import com.github.jirobird.syncli.screens.main.MainScreanActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity: Activity() {
@@ -25,10 +25,10 @@ class SplashActivity: Activity() {
         }
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainStateActivity::class.java)
+            val intent = Intent(this, MainScreanActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY and  Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             finish()
-        }, 300)
+        }, 1000)
     }
 }

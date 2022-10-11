@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".screens.main.MainStateActivity"
+            android:name=".screens.main.MainScreanActivity"
             android:exported="true"
             android:theme="@style/Theme.App.MainAppScreen">
         </activity>

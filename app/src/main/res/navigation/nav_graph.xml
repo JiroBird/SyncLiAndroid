@@ -7,20 +7,20 @@
 
     <fragment
         android:id="@+id/sync_li"
-        android:name="com.github.jirobird.syncli.screens.old_sample.FirstFragment"
+        android:name="com.github.jirobird.syncli.screens.syncli.SyncLiFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_syncli">
     </fragment>
     <fragment
         android:id="@+id/shared_li"
-        android:name="com.github.jirobird.syncli.screens.old_sample.SecondFragment"
+        android:name="com.github.jirobird.syncli.screens.sharedli.SharedLiFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_sharedli">
     </fragment>
     <fragment
         android:id="@+id/never_buy_this_shit_again"
-        android:name="com.github.jirobird.syncli.screens.old_sample.SecondFragment"
+        android:name="com.github.jirobird.syncli.screens.unwanted_purchases.UnwantedPurchaseFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_unwanted_purchase">
     </fragment>
 </navigation>

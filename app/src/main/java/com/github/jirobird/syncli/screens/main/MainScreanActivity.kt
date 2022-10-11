@@ -9,7 +9,7 @@ import com.github.jirobird.syncli.databinding.ActivityMainStateBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainStateActivity: AppCompatActivity() {
+class MainScreanActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityMainStateBinding
 
