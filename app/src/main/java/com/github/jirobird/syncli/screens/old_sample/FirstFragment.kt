@@ -1,14 +1,13 @@
-package com.github.jirobird.syncli
+package com.github.jirobird.syncli.screens.old_sample
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.github.jirobird.syncli.R
 import com.github.jirobird.syncli.databinding.FragmentFirstBinding
-import com.github.jirobird.syncli.screens.login.LoginScreenViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -16,9 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class FirstFragment : Fragment() {
-
     private var _binding: FragmentFirstBinding? = null
-    private val loginScreenViewModel:LoginScreenViewModel by viewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.

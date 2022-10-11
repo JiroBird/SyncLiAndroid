@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menu_sync_li">Список</string>
+    <string name="menu_shared_li">Общий</string>
+    <string name="menu_never_buy_this_shit_again">Нахер надо</string>
+</resources>

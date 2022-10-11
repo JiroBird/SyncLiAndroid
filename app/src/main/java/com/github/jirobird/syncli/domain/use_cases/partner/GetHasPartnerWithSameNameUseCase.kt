@@ -12,7 +12,6 @@ class GetHasPartnerWithSameNameUseCase @Inject constructor(
     private val repository: IPartnerRepository
 ) {
     operator fun invoke(nameToCheck:String): Flow<RequestResponse<Boolean>> = flow {
-        println()
         try {
             emit(RequestResponse.Loading())
             val hasSame = repository.hasPartnerWithSameName(nameToCheck)

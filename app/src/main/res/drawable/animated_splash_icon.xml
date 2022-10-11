@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_launcher_foreground">
+    <target
+        android:animation="@animator/animator_dot_drop_left"
+        android:name="bot_left"/>
+    <target
+        android:animation="@animator/animator_dot_drop_mid"
+        android:name="bot_mid"/>
+    <target
+        android:animation="@animator/animator_dot_drop_right"
+        android:name="bot_right"/>
+
+<!--    <target-->
+<!--        android:animation="@animator/animator_dot_drop_top_left"-->
+<!--        android:name="top_left"/>-->
+<!--    <target-->
+<!--        android:animation="@animator/animator_dot_drop_top_mid"-->
+<!--        android:name="top_mid"/>-->
+<!--    <target-->
+<!--        android:animation="@animator/animator_dot_drop_top_right"-->
+<!--        android:name="top_right"/>-->
+</animated-vector>

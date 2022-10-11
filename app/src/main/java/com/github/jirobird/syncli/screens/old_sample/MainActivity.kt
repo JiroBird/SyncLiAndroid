@@ -1,4 +1,4 @@
-package com.github.jirobird.syncli
+package com.github.jirobird.syncli.screens.old_sample
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -10,6 +10,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import com.github.jirobird.syncli.R
 import com.github.jirobird.syncli.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

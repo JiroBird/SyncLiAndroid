@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/sync_li"
+        android:enabled="true"
+        android:icon="@drawable/ic_format_list_bulleted"
+        android:title="@string/menu_sync_li"/>
+    <item
+        android:id="@+id/shared_li"
+        android:enabled="true"
+        android:icon="@drawable/ic_recent_actors"
+        android:title="@string/menu_shared_li"/>
+    <item
+        android:id="@+id/never_buy_this_shit_again"
+        android:enabled="true"
+        android:icon="@drawable/ic_barcode_scanner"
+        android:title="@string/menu_never_buy_this_shit_again"/>
+</menu>
