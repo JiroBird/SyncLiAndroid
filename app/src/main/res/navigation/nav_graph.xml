@@ -3,26 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@+id/sync_li">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/sync_li"
         android:name="com.github.jirobird.syncli.screens.old_sample.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/shared_li"
         android:name="com.github.jirobird.syncli.screens.old_sample.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/never_buy_this_shit_again"
+        android:name="com.github.jirobird.syncli.screens.old_sample.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
     </fragment>
 </navigation>

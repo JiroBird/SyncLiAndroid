@@ -25,9 +25,22 @@
     <!--    Main screen app     -->
     <style name="Theme.App.MainAppScreen" parent="Theme.SyncLi">
         <item name="android:windowFullscreen">true</item>
-        <item name="android:navigationBarColor">?attr/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/primaryColor</item>
+        <item name="backgroundColor">@color/primaryColor</item>
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+        <item name="android:textViewStyle">@style/CustomTextView</item>
     </style>
+
+    <!--    Text View   -->
+    <style name="CustomTextView" type="Widget.MaterialComponents.TextView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextView" parent="">
+        <item name="backgroundColor">@null</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+    <!--    /Text View   -->
 
     <!--    Bottom Navigation View      -->
     <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
@@ -35,8 +48,8 @@
     </style>
 
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
-        <item name="colorPrimary">?attr/colorPrimary</item>
-        <item name="colorOnPrimary">?attr/colorOnPrimary</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
     </style>
     <!--    /Bottom Navigation View      -->
     <!--    /Main screen app     -->
