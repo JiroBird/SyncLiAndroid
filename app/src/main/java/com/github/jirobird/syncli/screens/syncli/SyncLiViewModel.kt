@@ -34,30 +34,32 @@ class SyncLiViewModel @Inject constructor (
     }
 
     private fun fillFakeData() {
-         viewModelScope.launch {
-             ioScope.launch {
-                 val count = syncedListUseCases.getLocalSyncedListCount()
-                 if (count == 0) {
-                     (1..100).forEach {
-                         val syncedList = SyncedList(UUID.randomUUID().toString(), Date().time, "SyncLi$it")
-                         val randomSize = IntRange(0, (random() * 4).toInt())
-                         if (randomSize.last > 0) {
-                             val items = mutableListOf<SyncedListItem>()
-                             randomSize.forEach { syncLiItemIterator->
-                                 items.add(SyncedListItem(UUID.randomUUID().toString(),Date().time, "SyncLiItem$syncLiItemIterator", syncedList.id))
-                             }
-                         }
+        viewModelScope.launch {
+            ioScope.launch {
+                val count = syncedListUseCases.getLocalSyncedListCount()
+                if (count == 0) {
+                    (1..100).forEach {
+                        val syncedList = SyncedList(UUID.randomUUID().toString(), Date().time, "SyncLi$it")
+                        val randomSize = IntRange(0, (random() * 4).toInt())
+                        if (randomSize.last > 0) {
+                            val items = mutableListOf<SyncedListItem>()
+                            randomSize.forEach { syncLiItemIterator->
+                                items.add(SyncedListItem(UUID.randomUUID().toString(),Date().time, "SyncLiItem$syncLiItemIterator", syncedList.id))
+                            }
+                            syncedList.itemsCount = items.size
+                            syncedList.itemList = items
+                        }
 
-                         syncedListUseCases.pushOrUpdateSyncedList(syncedList)
-                     }
-                 }
-             }
+                        syncedListUseCases.pushOrUpdateSyncedList(syncedList)
+                    }
+                }
+            }
         }
     }
 
     private fun loadData() {
         getAllItemsJob?.cancel()
-        getAllItemsJob = syncedListUseCases.getLocalSyncedLists().onEach {
+        getAllItemsJob = syncedListUseCases.getLocalSyncedListWithContent().onEach {
             _syncedListState.emit(it)
         }.launchIn(viewModelScope)
     }

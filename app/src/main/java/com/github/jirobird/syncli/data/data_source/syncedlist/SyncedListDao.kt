@@ -7,22 +7,29 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SyncedListDao {
-    @Query("SELECT * FROM syncedlistentity")
+    @Query("SELECT * FROM SyncedListEntity")
     fun getAllLists(): Flow<List<SyncedListEntity>>
 
-    @Query("SELECT COUNT(id) FROM syncedlistentity")
+    @Query("SELECT COUNT(id) FROM SyncedListEntity")
     fun getListCount():Int
 
-    @Query("SELECT * FROM syncedlistentity WHERE id =:id ORDER BY timestamp LIMIT 1")
+    @Query("SELECT * FROM SyncedListEntity WHERE id =:id ORDER BY timestamp LIMIT 1")
     suspend fun getListById(id:String):SyncedListEntity?
 
     @Transaction
-    @Query("SELECT * FROM syncedlistentity WHERE id = :id ORDER BY timestamp LIMIT 1")
-    suspend fun getListWithItems(id: String): SyncedListAndItem?
+    @Query("SELECT * FROM SyncedListEntity WHERE id = :id ORDER BY timestamp LIMIT 1")
+    fun getAllListWithItems(id: String): SyncedListAndItem?
+
+    @Transaction
+    @Query("SELECT * FROM SyncedListEntity")
+    fun getAllListWithItems():Flow<List<SyncedListAndItem>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSyncedList(syncedListEntity: SyncedListEntity)
 
     @Delete
     suspend fun deleteSyncedList(syncedListEntity: SyncedListEntity)
+
+    @Query("DELETE FROM SyncedListEntity")
+    suspend fun dropTable()
 }

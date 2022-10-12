@@ -5,7 +5,7 @@ import com.github.jirobird.syncli.domain.model.synced_list.SyncedListItem
 
 
 fun SyncedListEntity.toSyncedList():SyncedList {
-    return SyncedList(id, timestamp, title)
+    return SyncedList(id, timestamp, title, itemCount)
 }
 
 fun SyncedListItemEntity.toSyncedListItem():SyncedListItem {
@@ -13,13 +13,13 @@ fun SyncedListItemEntity.toSyncedListItem():SyncedListItem {
 }
 
 fun SyncedListAndItem.toSyncedList():SyncedList {
-    return SyncedList(syncedListEntity.id, syncedListEntity.timestamp, syncedListEntity.title, syncedListItems.map {
+    return SyncedList(syncedListEntity.id, syncedListEntity.timestamp, syncedListEntity.title, syncedListItems.size, syncedListItems.map {
             syncedListItemEntity -> syncedListItemEntity.toSyncedListItem()
     })
 }
 
 fun SyncedList.toSyncedListEntity():SyncedListEntity {
-    return SyncedListEntity(id, timestamp, title)
+    return SyncedListEntity(id, timestamp, title, itemsCount)
 }
 
 fun SyncedListItem.toSyncedListItemEntity(iSyncedListItemId:String? = null):SyncedListItemEntity {

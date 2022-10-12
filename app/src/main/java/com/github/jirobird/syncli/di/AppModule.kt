@@ -9,10 +9,7 @@ import com.github.jirobird.syncli.data.repository.IPartnerRepository
 import com.github.jirobird.syncli.data.repository.ISyncedListRepository
 import com.github.jirobird.syncli.domain.repository.PartnerRepositoryImpl
 import com.github.jirobird.syncli.domain.repository.SyncedListLocalRepositoryImpl
-import com.github.jirobird.syncli.domain.use_cases.sync_li.GetLocalSyncedListCount
-import com.github.jirobird.syncli.domain.use_cases.sync_li.GetLocalSyncedLists
-import com.github.jirobird.syncli.domain.use_cases.sync_li.PushOrUpdateSyncedList
-import com.github.jirobird.syncli.domain.use_cases.sync_li.SyncedListUseCases
+import com.github.jirobird.syncli.domain.use_cases.sync_li.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -60,7 +57,10 @@ object AppModule {
         return SyncedListUseCases(
             getLocalSyncedListCount = GetLocalSyncedListCount(syncedListLocalRepository),
             getLocalSyncedLists = GetLocalSyncedLists(syncedListLocalRepository),
-            pushOrUpdateSyncedList = PushOrUpdateSyncedList(syncedListLocalRepository)
+            pushOrUpdateSyncedList = PushOrUpdateSyncedList(syncedListLocalRepository),
+            getLocalSyncedListWithContent = GetLocalSyncedListWithContent(syncedListLocalRepository),
+            getLocalSyncedListContent = GetLocalSyncedListContent(syncedListLocalRepository),
+            getLocalSyncedListItemsCount = GetLocalSyncedListItemsCount(syncedListLocalRepository)
         )
     }
 }

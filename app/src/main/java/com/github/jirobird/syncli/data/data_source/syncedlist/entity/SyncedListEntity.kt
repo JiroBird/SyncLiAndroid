@@ -9,5 +9,6 @@ data class SyncedListEntity(
     @PrimaryKey
     val id:String = UUID.randomUUID().toString(),
     val timestamp: Long,
-    val title: String
+    val title: String,
+    val itemCount: Int = 0
 )

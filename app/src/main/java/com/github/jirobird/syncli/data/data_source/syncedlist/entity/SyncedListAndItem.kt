@@ -5,9 +5,7 @@ import androidx.room.Relation
 
 data class SyncedListAndItem(
     @Embedded val syncedListEntity: SyncedListEntity,
-    @Relation(
-        parentColumn = "id",
-        entityColumn = "syncedListId"
-    )
+
+    @Relation(parentColumn = "id", entityColumn = "syncedListId")
     val syncedListItems: List<SyncedListItemEntity>
 )

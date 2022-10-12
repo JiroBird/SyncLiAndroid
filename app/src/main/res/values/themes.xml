@@ -25,7 +25,7 @@
     <!--    Main screen app     -->
     <style name="Theme.App.MainAppScreen" parent="Theme.SyncLi">
         <item name="android:windowFullscreen">true</item>
-        <item name="android:navigationBarColor">@color/primaryColor</item>
+        <item name="android:navigationBarColor">@color/primaryDarkColor</item>
         <item name="backgroundColor">@color/primaryColor</item>
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
         <item name="android:textViewStyle">@style/CustomTextView</item>
@@ -48,7 +48,7 @@
     </style>
 
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
-        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimary">@color/primaryDarkColor</item>
         <item name="colorOnPrimary">@color/primaryTextColor</item>
     </style>
     <!--    /Bottom Navigation View      -->

@@ -11,13 +11,16 @@ import java.util.UUID
 
 @Dao
 interface SyncedListItemDao {
-    @Query("SELECT * FROM syncedlistitementity")
+    @Query("SELECT COUNT(id) FROM SyncedListItemEntity")
+    fun getItemsCount():Int
+
+    @Query("SELECT * FROM SyncedListItemEntity")
     fun getAllItems(): Flow<List<SyncedListItemEntity>>
 
-    @Query("SELECT * FROM syncedlistitementity WHERE id = :id ORDER BY timestamp LIMIT 1")
+    @Query("SELECT * FROM SyncedListItemEntity WHERE id = :id ORDER BY timestamp LIMIT 1")
     suspend fun getItemById(id:String): SyncedListItemEntity?
 
-    @Query("SELECT * FROM syncedlistitementity WHERE syncedListId = :listId")
+    @Query("SELECT * FROM SyncedListItemEntity WHERE syncedListId = :listId")
     fun getItemsByListId(listId:UUID):  Flow<List<SyncedListItemEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

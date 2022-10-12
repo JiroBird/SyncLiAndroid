@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/vh_height_syncli"
+    >
+
+    <TextView
+        android:id="@+id/tv_syncli_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_syncli_count"
+        android:layout_marginStart="@dimen/margin_cell_start"
+        android:layout_marginEnd="@dimen/margin_cell_end"
+
+        android:text="@string/mock_vh_syncli_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_syncli_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/margin_cell_end"
+
+        android:text="@string/mock_vh_syncli_count"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
