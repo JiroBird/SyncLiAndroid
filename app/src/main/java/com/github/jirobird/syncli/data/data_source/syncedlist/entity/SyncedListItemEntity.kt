@@ -10,5 +10,5 @@ data class SyncedListItemEntity(
     val id:String = UUID.randomUUID().toString(),
     val timestamp:Long,
     val title:String,
-    val syncedListId:String
+    val syncedListId:String = ""
 )

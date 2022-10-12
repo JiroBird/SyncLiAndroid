@@ -11,6 +11,7 @@ import com.github.jirobird.syncli.domain.repository.PartnerRepositoryImpl
 import com.github.jirobird.syncli.domain.repository.SyncedListLocalRepositoryImpl
 import com.github.jirobird.syncli.domain.use_cases.sync_li.GetLocalSyncedListCount
 import com.github.jirobird.syncli.domain.use_cases.sync_li.GetLocalSyncedLists
+import com.github.jirobird.syncli.domain.use_cases.sync_li.PushOrUpdateSyncedList
 import com.github.jirobird.syncli.domain.use_cases.sync_li.SyncedListUseCases
 import dagger.Module
 import dagger.Provides
@@ -50,7 +51,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideSyncedListLocalRepository(syncedListApplicationDatabase: SyncedListApplicationDatabase): ISyncedListRepository{
-        return SyncedListLocalRepositoryImpl(syncedListApplicationDatabase.syncedListDao)
+        return SyncedListLocalRepositoryImpl(syncedListApplicationDatabase.syncedListDao, syncedListApplicationDatabase.syncedListItemDao)
     }
 
     @Provides
@@ -58,7 +59,8 @@ object AppModule {
     fun provideSyncedListUseCases(syncedListLocalRepository:ISyncedListRepository):SyncedListUseCases {
         return SyncedListUseCases(
             getLocalSyncedListCount = GetLocalSyncedListCount(syncedListLocalRepository),
-            getLocalSyncedLists = GetLocalSyncedLists(syncedListLocalRepository)
+            getLocalSyncedLists = GetLocalSyncedLists(syncedListLocalRepository),
+            pushOrUpdateSyncedList = PushOrUpdateSyncedList(syncedListLocalRepository)
         )
     }
 }
