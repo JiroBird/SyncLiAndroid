@@ -5,7 +5,7 @@
 
     <color name="primaryColor">#212121</color>
     <color name="primaryLightColor">#484848</color>
-    <color name="primaryDarkColor">#000000</color>
+    <color name="primaryDarkColor">#181818</color>
     <color name="primaryTextColor">#ffffff</color>
 
     <color name="secondaryColor">#69F0AE</color>

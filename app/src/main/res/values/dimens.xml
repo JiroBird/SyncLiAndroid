@@ -3,4 +3,14 @@
     <dimen name="vh_height_syncli">64dp</dimen>
     <dimen name="margin_cell_start">16dp</dimen>
     <dimen name="margin_cell_end">16dp</dimen>
+    <dimen name="margin_cell_top">16dp</dimen>
+
+
+<!--    TextView -->
+    <dimen name="tv_vh_tittle">24dp</dimen>
+    <dimen name="tv_vh_regular">16dp</dimen>
+
+
+<!--    SyncLi Card    -->
+    <dimen name="vh_syncli_card_half_gap">4dp</dimen>
 </resources>

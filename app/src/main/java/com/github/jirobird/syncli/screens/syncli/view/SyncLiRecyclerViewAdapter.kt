@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.github.jirobird.syncli.databinding.VhSyncliBinding
 import com.github.jirobird.syncli.domain.model.synced_list.SyncedList
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SyncLiRecyclerViewAdapter: RecyclerView.Adapter<SyncLiViewHolder>() {
     private var list:List<SyncedList>? = null
@@ -24,6 +26,8 @@ class SyncLiRecyclerViewAdapter: RecyclerView.Adapter<SyncLiViewHolder>() {
     override fun onBindViewHolder(holder: SyncLiViewHolder, position: Int) {
         holder.vhBinder.tvSyncliTitle.text = list?.get(position)?.title ?: holder.vhBinder.tvSyncliTitle.text
         holder.vhBinder.tvSyncliCount.text = list?.get(position)?.itemsCount.toString()
+        val date = list?.get(position)?.timestamp ?: 0
+        holder.vhBinder.tvSyncliDate.text = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date(date))
     }
 
     override fun getItemCount(): Int {

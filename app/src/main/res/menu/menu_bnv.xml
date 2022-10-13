@@ -6,11 +6,6 @@
         android:icon="@drawable/ic_format_list_bulleted"
         android:title="@string/menu_sync_li"/>
     <item
-        android:id="@id/shared_li"
-        android:enabled="true"
-        android:icon="@drawable/ic_recent_actors"
-        android:title="@string/menu_shared_li"/>
-    <item
         android:id="@id/never_buy_this_shit_again"
         android:enabled="true"
         android:icon="@drawable/ic_barcode_scanner"

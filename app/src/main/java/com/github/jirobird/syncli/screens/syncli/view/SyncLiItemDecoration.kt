@@ -31,9 +31,9 @@ class SyncLiItemDecoration: RecyclerView.ItemDecoration() {
 
                     @Suppress("DEPRECATION")
                     color = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        parent.context.resources.getColor(R.color.primaryColor, null)
+                        parent.context.resources.getColor(R.color.primaryLightColor, null)
                     } else {
-                        parent.context.resources.getColor(R.color.primaryColor)
+                        parent.context.resources.getColor(R.color.primaryLightColor)
                     }
                 }
             )
@@ -50,21 +50,15 @@ class SyncLiItemDecoration: RecyclerView.ItemDecoration() {
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
+        val gap = parent.context.resources.getDimension(R.dimen.vh_syncli_card_half_gap).toInt()
         when (parent.indexOfChild(view)) {
-//            0 -> {
-//                outRect.bottom = Dp.toPx(8) //TODO: заменить на дименшены
-//            }
-//
-//            lastItemIndex -> {
-//                outRect.top = Dp.toPx(8) //TODO: заменить на дименшены
-//            }
             else -> {
-                outRect.bottom = Dp.toPx(8) //TODO: заменить на дименшены
-                outRect.top = Dp.toPx(8) //TODO: заменить на дименшены
+                outRect.bottom = gap
+                outRect.top = gap
             }
         }
 
-        outRect.left = Dp.toPx(8) //TODO: заменить на дименшены
-        outRect.right = Dp.toPx(8) //TODO: заменить на дименшены
+        outRect.left = gap
+        outRect.right = gap
     }
 }
