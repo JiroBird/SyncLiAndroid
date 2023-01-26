@@ -14,7 +14,7 @@ interface SyncedListItemDao {
     @Query("SELECT COUNT(id) FROM SyncedListItemEntity")
     fun getItemsCount():Int
 
-    @Query("SELECT * FROM SyncedListItemEntity")
+    @Query("SELECT * FROM SyncedListItemEntity ORDER BY timestamp")
     fun getAllItems(): Flow<List<SyncedListItemEntity>>
 
     @Query("SELECT * FROM SyncedListItemEntity WHERE id = :id ORDER BY timestamp LIMIT 1")

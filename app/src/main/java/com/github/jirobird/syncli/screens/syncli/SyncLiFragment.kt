@@ -8,11 +8,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.jirobird.syncli.databinding.FragmentSyncliBinding
 import com.github.jirobird.syncli.screens.common.ADiFragment
+import com.github.jirobird.syncli.screens.syncli.mvvm.SyncLiScreenUiEvent
+import com.github.jirobird.syncli.screens.syncli.mvvm.SyncLiViewModel
 import com.github.jirobird.syncli.screens.syncli.view.SyncLiItemDecoration
 import com.github.jirobird.syncli.screens.syncli.view.SyncLiRecyclerViewAdapter
 import kotlinx.coroutines.launch
 
-class SyncLiFragment: ADiFragment() {
+class SyncLiFragment: ADiFragment(), SyncLiRecyclerViewAdapter.ISyncLiRecyclerViewAdapterListener {
     lateinit var binding: FragmentSyncliBinding
     private val viewModel by viewModels<SyncLiViewModel>()
 
@@ -28,21 +30,32 @@ class SyncLiFragment: ADiFragment() {
         }
 
         if (binding.rvSyncedList.adapter == null) {
-            binding.rvSyncedList.adapter = SyncLiRecyclerViewAdapter()
+            binding.rvSyncedList.adapter = SyncLiRecyclerViewAdapter().apply {
+                syncLiRecyclerViewAdapterListener = this@SyncLiFragment
+            }
         }
 
         if(binding.rvSyncedList.itemDecorationCount == 0) {
             binding.rvSyncedList.addItemDecoration(SyncLiItemDecoration())
         }
 
+        binding.srlSyncliUpdate.setOnRefreshListener {
+            viewModel.onUserUiEvent(SyncLiScreenUiEvent.SyncLiScreenUiEventRefreshList)
+        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycleScope.launchWhenResumed {
                 viewModel.syncedListState.collect { syncli ->
+                    binding.srlSyncliUpdate.isRefreshing = false
                     binding.rvSyncedList.adapter?.let { adapter ->
                         (adapter as SyncLiRecyclerViewAdapter).pushItems(syncli)
                     }
                 }
             }
         }
+    }
+
+    override fun onItemClicked(itemClick: SyncLiScreenUiEvent) {
+        viewModel.onUserUiEvent(itemClick)
     }
 }

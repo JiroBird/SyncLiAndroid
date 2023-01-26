@@ -12,5 +12,6 @@
 
 
 <!--    SyncLi Card    -->
-    <dimen name="vh_syncli_card_half_gap">4dp</dimen>
+    <dimen name="vh_syncli_card_half_gap">8dp</dimen>
+    <dimen name="vh_syncli_card_round">12dp</dimen>
 </resources>

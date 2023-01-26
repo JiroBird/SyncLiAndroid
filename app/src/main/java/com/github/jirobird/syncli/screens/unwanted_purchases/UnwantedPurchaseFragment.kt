@@ -16,7 +16,5 @@ class UnwantedPurchaseFragment: ADiFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.tvFragmentName.text = this.javaClass.simpleName
     }
 }

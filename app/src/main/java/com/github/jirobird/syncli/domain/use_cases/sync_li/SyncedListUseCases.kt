@@ -7,6 +7,5 @@ data class SyncedListUseCases(
     val getLocalSyncedListWithContent: GetLocalSyncedListWithContent,
     val getLocalSyncedListContent: GetLocalSyncedListContent,
 
-
     val getLocalSyncedListItemsCount: GetLocalSyncedListItemsCount
 )

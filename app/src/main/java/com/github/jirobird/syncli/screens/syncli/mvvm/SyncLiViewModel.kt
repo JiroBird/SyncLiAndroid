@@ -1,4 +1,4 @@
-package com.github.jirobird.syncli.screens.syncli
+package com.github.jirobird.syncli.screens.syncli.mvvm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -23,7 +23,7 @@ class SyncLiViewModel @Inject constructor (
     private val syncedListUseCases: SyncedListUseCases
 ): ViewModel() {
     private val ioScope = CoroutineScope(Dispatchers.IO)
-    private var getAllItemsJob:Job?=null
+    private var getAllItemsJob: Job?=null
 
     private val _syncedListState = MutableStateFlow<List<SyncedList>?>(null)
     val syncedListState = _syncedListState.asStateFlow()
@@ -38,7 +38,7 @@ class SyncLiViewModel @Inject constructor (
             ioScope.launch {
                 val count = syncedListUseCases.getLocalSyncedListCount()
                 if (count == 0) {
-                    (1..100).forEach {
+                    (1..20).forEach {
                         val syncedList = SyncedList(UUID.randomUUID().toString(), Date().time, "SyncLi$it")
                         val randomSize = IntRange(0, (random() * 4).toInt())
                         if (randomSize.last > 0) {
@@ -60,7 +60,41 @@ class SyncLiViewModel @Inject constructor (
     private fun loadData() {
         getAllItemsJob?.cancel()
         getAllItemsJob = syncedListUseCases.getLocalSyncedListWithContent().onEach {
+            _syncedListState.emit(null)
             _syncedListState.emit(it)
         }.launchIn(viewModelScope)
+    }
+
+    fun onUserUiEvent(event: SyncLiScreenUiEvent) {
+        when(event) {
+            SyncLiScreenUiEvent.SyncLiScreenUiEventRefreshList -> {
+                loadData()
+            }
+
+            is SyncLiScreenUiEvent.SyncLiScreenUiEventItemClicked -> {
+                viewModelScope.launch {
+                    ioScope.launch{
+                        val item = _syncedListState.value?.get(event.index)
+                        item?.let { nnItem ->
+                            val mutable = nnItem.itemList as MutableList<SyncedListItem>?
+                            mutable?.let {
+                                it.add(SyncedListItem(
+                                    UUID.randomUUID().toString(),
+                                    Date().time,
+                                    "SyncLiItem${it.size}",
+                                    nnItem.id
+                                ))
+                            }
+
+                            syncedListUseCases.pushOrUpdateSyncedList(nnItem)
+
+                            loadData()
+                        }
+                    }
+                }
+            }
+
+            else -> {}
+        }
     }
 }

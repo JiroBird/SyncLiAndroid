@@ -4,12 +4,53 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/tv_fragment_name"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/margin_cell_start"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="16dp"/>
+        android:background="@color/primaryLightColor"
+        >
+
+        <ImageView
+            android:id="@+id/iv_search_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_search"
+            app:tint="@color/primaryColor"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+
+            app:layout_constraintStart_toEndOf="@+id/iv_search_icon"
+            app:layout_constraintTop_toTopOf="@+id/iv_search_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_search_icon"
+            app:layout_constraintEnd_toStartOf="@+id/b_scan_bar_code"
+            android:paddingStart="@dimen/margin_cell_start"
+            android:paddingEnd="@dimen/margin_cell_end"
+
+            android:background="@null"
+            android:hint="@string/search_view_search_shit_stuff"
+            android:textColorHint="@color/primaryTextDarkColor"
+            android:textColor="@color/primaryTextColor"
+            android:textStyle="normal"
+            />
+
+        <Button
+            android:id="@+id/b_scan_bar_code"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/ic_barcode_scanner"
+
+            app:layout_constraintTop_toTopOf="@+id/iv_search_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_search_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="@color/primaryColor"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

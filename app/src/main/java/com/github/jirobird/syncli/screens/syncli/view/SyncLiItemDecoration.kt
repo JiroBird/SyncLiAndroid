@@ -12,10 +12,9 @@ import com.github.jirobird.syncli.common.Dp
 
 class SyncLiItemDecoration: RecyclerView.ItemDecoration() {
 
-
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(c, parent, state)
-        val corner = Dp.toPx(16).toFloat()
+        val corner = parent.context.resources.getDimension(R.dimen.vh_syncli_card_half_gap).toFloat()
 
         parent.children.forEach { child ->
             c.drawRoundRect(
@@ -51,14 +50,24 @@ class SyncLiItemDecoration: RecyclerView.ItemDecoration() {
         state: RecyclerView.State
     ) {
         val gap = parent.context.resources.getDimension(R.dimen.vh_syncli_card_half_gap).toInt()
-        when (parent.indexOfChild(view)) {
-            else -> {
-                outRect.bottom = gap
-                outRect.top = gap
-            }
-        }
 
         outRect.left = gap
         outRect.right = gap
+        outRect.bottom = gap
+        outRect.top = gap
+
+        val lastIndex = parent.adapter?.itemCount?.minus(1) ?: 0
+
+        when (parent.getChildAdapterPosition(view)) {
+            0 -> {
+                outRect.top = 3 * gap
+            }
+
+            lastIndex -> {
+                outRect.bottom = 3 * gap
+            }
+
+            else -> {}
+        }
     }
 }
